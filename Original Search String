@@ -1,0 +1,10 @@
+(@ipc f28d9* or f28f3* or @cpc f28d9* or f28f3* or @ti (plate* heat* exchanger*) or plattenwärmetauscher* or plattenwaermetauscher or plattenwarmetauscher or @ab (plate* heat* exchanger*) or plattenwärmetauscher* or plattenwaermetauscher or plattenwarmetauscher) or ((@ipc f21f13* or @cpc f21f13) and (@ti lamina* or stack* or plate* or plattenw* or *stapel* or @ab lamina* or stack* or plate* or plattenw* or *stapel* ))
+
+
+
+
+New Search String 1 (without stemming, for example, "exchanger" and "exchange" are regards as different terms):
+@ipc (f28d9* or f28f3*) or @cpc (f28d9* or f28f3*) or @ti (exchanger* heat* (heat exchanger*)) or @ab (comprising* exchange* exchanger* flow* formed* heat exchange* heat exchanger* plate)
+
+New 2 (after stemming, for example, "exchanger" and "exchanger" are regards as word stem "exchang")
+@ipc (f28d9* or f28f3*) or @cpc (f28d9* or f28f3*) or @ti (exchang* heat* (heat exchang*)) or @ab (compris* connect* extend* flow* form* plate* surfac* use*)
