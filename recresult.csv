@@ -1,0 +1,133 @@
+title和abstract一起作为特征的推荐结果
+Recsys training: model = factorization_recommender
+Preparing data set.
+    Data has 57 observations with 1 users and 63 items.
+    Data prepared in: 0.032006s
+Training factorization_recommender for recommendations.
++--------------------------------+--------------------------------------------------+----------+
+| Parameter                      | Description                                      | Value    |
++--------------------------------+--------------------------------------------------+----------+
+| num_factors                    | Factor Dimension                                 | 8        |
+| regularization                 | L2 Regularization on Factors                     | 1e-08    |
+| solver                         | Solver used for training                         | adagrad  |
+| linear_regularization          | L2 Regularization on Linear Coefficients         | 1e-10    |
+| side_data_factorization        | Assign Factors for Side Data                     | True     |
+| max_iterations                 | Maximum Number of Iterations                     | 50       |
++--------------------------------+--------------------------------------------------+----------+
+  Optimizing model using SGD; tuning step size.
+  Using 57 / 57 points for tuning the step size.
++---------+-------------------+------------------------------------------+
+| Attempt | Initial Step Size | Estimated Objective Value                |
++---------+-------------------+------------------------------------------+
+| 0       | 2                 | 0.197764                                 |
+| 1       | 1                 | Not Viable                               |
+| 2       | 0.25              | 0.0654746                                |
+| 3       | 0.125             | 0.790693                                 |
++---------+-------------------+------------------------------------------+
+| Final   | 0.25              | 0.0654746                                |
++---------+-------------------+------------------------------------------+
+Starting Optimization.
++---------+--------------+-------------------+-----------------------+-------------+
+| Iter.   | Elapsed Time | Approx. Objective | Approx. Training RMSE | Step Size   |
++---------+--------------+-------------------+-----------------------+-------------+
+| Initial | 102us        | 3.18385           | 1.78433               |             |
++---------+--------------+-------------------+-----------------------+-------------+
+| 1       | 2.73ms       | 3.6885            | 1.92055               | 0.25        |
+| 2       | 10.724ms     | 1.36662           | 1.16902               | 0.25        |
+| 3       | 12.668ms     | 0.448406          | 0.669631              | 0.25        |
+| 4       | 19.831ms     | 0.153925          | 0.392332              | 0.25        |
+| 5       | 20.995ms     | 0.11943           | 0.345585              | 0.25        |
+| 6       | 25.769ms     | 0.0292592         | 0.171051              | 0.25        |
+| 11      | 33.472ms     | 0.00089523        | 0.029911              | 0.25        |
++---------+--------------+-------------------+-----------------------+-------------+
+Optimization Complete: Maximum number of passes through the data reached.
+Computing final objective value and training RMSE.
+       Final objective value: 0.000126887
+       Final training RMSE: 0.0112392
++---------+---------+---------------+------+
+| user_id | item_id |     score     | rank |
++---------+---------+---------------+------+
+|    1    |    63   | 2.62527062124 |  1   |
+|    1    |    58   | 2.62517480602 |  2   |
+|    1    |    64   | 2.62504881987 |  3   |
+|    1    |    62   | 2.62478136057 |  4   |
+|    1    |    59   | 2.62458142967 |  5   |
+|    1    |    57   | 2.62450237125 |  6   |
++---------+---------+---------------+------+
+[6 rows x 4 columns]
+
++---------+-----------+
+| user_id | num_items |
++---------+-----------+
+|    1    |     57    |
++---------+-----------+
+[1 rows x 2 columns]
+
+
+只用title:
+Recsys training: model = factorization_recommender
+Preparing data set.
+    Data has 57 observations with 1 users and 63 items.
+    Data prepared in: 0.008342s
+Training factorization_recommender for recommendations.
++--------------------------------+--------------------------------------------------+----------+
+| Parameter                      | Description                                      | Value    |
++--------------------------------+--------------------------------------------------+----------+
+| num_factors                    | Factor Dimension                                 | 8        |
+| regularization                 | L2 Regularization on Factors                     | 1e-08    |
+| solver                         | Solver used for training                         | adagrad  |
+| linear_regularization          | L2 Regularization on Linear Coefficients         | 1e-10    |
+| side_data_factorization        | Assign Factors for Side Data                     | True     |
+| max_iterations                 | Maximum Number of Iterations                     | 50       |
++--------------------------------+--------------------------------------------------+----------+
+  Optimizing model using SGD; tuning step size.
+  Using 57 / 57 points for tuning the step size.
++---------+-------------------+------------------------------------------+
+| Attempt | Initial Step Size | Estimated Objective Value                |
++---------+-------------------+------------------------------------------+
+| 0       | 10                | Not Viable                               |
+| 1       | 2.5               | 0.114271                                 |
+| 2       | 1.25              | 0.173103                                 |
+| 3       | 0.625             | 0.0299667                                |
+| 4       | 0.3125            | 0.020231                                 |
+| 5       | 0.15625           | 0.0168766                                |
+| 6       | 0.078125          | 0.0662461                                |
++---------+-------------------+------------------------------------------+
+| Final   | 0.15625           | 0.0168766                                |
++---------+-------------------+------------------------------------------+
+Starting Optimization.
++---------+--------------+-------------------+-----------------------+-------------+
+| Iter.   | Elapsed Time | Approx. Objective | Approx. Training RMSE | Step Size   |
++---------+--------------+-------------------+-----------------------+-------------+
+| Initial | 116us        | 3.1836            | 1.78426               |             |
++---------+--------------+-------------------+-----------------------+-------------+
+| 1       | 1.538ms      | 3.21925           | 1.79423               | 0.15625     |
+| 2       | 2.889ms      | 0.910492          | 0.954197              | 0.15625     |
+| 3       | 5.003ms      | 0.0474516         | 0.217833              | 0.15625     |
+| 4       | 6.412ms      | 0.0058836         | 0.0767026             | 0.15625     |
+| 5       | 8.323ms      | 0.00111163        | 0.0333366             | 0.15625     |
+| 6       | 10.115ms     | 0.000250948       | 0.0158319             | 0.15625     |
+| 11      | 19.805ms     | 4.29702e-07       | 0.000359574           | 0.15625     |
++---------+--------------+-------------------+-----------------------+-------------+
+Optimization Complete: Convergence on objective within bounds.
+Computing final objective value and training RMSE.
+       Final objective value: 3.06114e-07
+       Final training RMSE: 7.55238e-05
++---------+---------+---------------+------+
+| user_id | item_id |     score     | rank |
++---------+---------+---------------+------+
+|    1    |    63   | 2.86644950275 |  1   |
+|    1    |    59   | 2.86611768143 |  2   |
+|    1    |    64   | 2.86604182395 |  3   |
+|    1    |    58   | 2.86603158125 |  4   |
+|    1    |    57   | 2.86575072652 |  5   |
+|    1    |    62   | 2.86545015113 |  6   |
++---------+---------+---------------+------+
+[6 rows x 4 columns]
+
++---------+-----------+
+| user_id | num_items |
++---------+-----------+
+|    1    |     57    |
++---------+-----------+
+[1 rows x 2 columns]
